@@ -8,5 +8,4 @@ Pick your own images.
 ## Requirements
 - Do not use Storyboards/XIBs
 - Use Swift
-- Pick your own images
 - Use AutoLayout
