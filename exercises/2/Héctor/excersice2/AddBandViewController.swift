@@ -10,33 +10,33 @@ import UIKit
 
 
 private extension Selector {
-    static let buttonTaped = #selector(SecondViewController.buttonTapped(_:))
+    static let buttonTaped = #selector(AddBandViewController.buttonTapped(_:))
 }
-protocol MyProtocol: class
+protocol AddBandDelegate: class
 {
     func sendBandsName(myString: String)
 }
 
-class SecondViewController: UIViewController,UITextFieldDelegate,UIAlertViewDelegate {
-    var delegate:MyProtocol?
+class AddBandViewController: UIViewController,UITextFieldDelegate,UIAlertViewDelegate {
+    var delegate:AddBandDelegate?
     private lazy var buttonAdd: UIButton = {
         let i = UIButton()
-        // i.setImage(UIImage(named: "lemon"), forState: .Normal)
         i.setTitle("save", forState: .Normal)
         i.setTitleColor(.blueColor(), forState: .Normal)
         i.translatesAutoresizingMaskIntoConstraints = false
         i.addTarget(self, action: .buttonTaped, forControlEvents: UIControlEvents.TouchUpInside)
         return i
     }()
+    
     private lazy var buttonCancel: UIButton = {
         let i = UIButton()
-        // i.setImage(UIImage(named: "lemon"), forState: .Normal)
         i.setTitle("cancel", forState: .Normal)
         i.setTitleColor(.blueColor(), forState: .Normal)
         i.translatesAutoresizingMaskIntoConstraints = false
         i.addTarget(self, action: .buttonTaped, forControlEvents: UIControlEvents.TouchUpInside)
         return i
     }()
+    
     private lazy var textFieldBand: UITextField = {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -47,6 +47,7 @@ class SecondViewController: UIViewController,UITextFieldDelegate,UIAlertViewDele
         textField.delegate = self
         return textField
     }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.orangeColor()
@@ -56,17 +57,16 @@ class SecondViewController: UIViewController,UITextFieldDelegate,UIAlertViewDele
         makeConstraints()
         //Do any additional setup after loading the view.
     }
-
+    
     func makeConstraints() {
         let margin = view.layoutMarginsGuide
-        buttonAdd.topAnchor.constraintEqualToAnchor(margin.topAnchor, constant:10).active = true
+        
+        buttonAdd.topAnchor.constraintEqualToAnchor(margin.topAnchor, constant:40).active = true
         buttonAdd.trailingAnchor.constraintEqualToAnchor(margin.trailingAnchor, constant: -5).active = true
-        buttonAdd.widthAnchor.constraintEqualToConstant(100).active = true
-        buttonAdd.heightAnchor.constraintEqualToConstant(100).active = true
-        buttonCancel.topAnchor.constraintEqualToAnchor(margin.topAnchor, constant:10).active = true
+        
+        buttonCancel.topAnchor.constraintEqualToAnchor(margin.topAnchor, constant:40).active = true
         buttonCancel.leadingAnchor.constraintEqualToAnchor(margin.leadingAnchor, constant: 5).active = true
-        buttonCancel.widthAnchor.constraintEqualToConstant(100).active = true
-        buttonCancel.heightAnchor.constraintEqualToConstant(100).active = true
+        
         textFieldBand.widthAnchor.constraintEqualToConstant(200).active = true
         textFieldBand.heightAnchor.constraintEqualToConstant(60).active = true
         textFieldBand.topAnchor.constraintEqualToAnchor(margin.topAnchor,constant: 100).active = true
@@ -79,25 +79,29 @@ class SecondViewController: UIViewController,UITextFieldDelegate,UIAlertViewDele
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     func buttonTapped(button: UIButton) {
-        if button == buttonAdd{
+        
+        switch button {
+        case buttonAdd:
             if textFieldBand.text?.isEmpty == true{
                 UIAlertView(title:"Menssage", message: "Add a Band's Name", delegate: self, cancelButtonTitle: "Ok").show()
                 
             }else{
-                delegate!.sendBandsName(textFieldBand.text!)
+                delegate?.sendBandsName(textFieldBand.text!)
                 textFieldBand.resignFirstResponder()
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
-        }
-        else{
+            break
+        default:
             self.dismissViewControllerAnimated(true, completion: nil)
         }
     }
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        delegate!.sendBandsName(textField.text!)
+        delegate?.sendBandsName(textField.text!)
         textField.resignFirstResponder()
-       self.dismissViewControllerAnimated(true, completion: nil)
+        self.dismissViewControllerAnimated(true, completion: nil)
         return true
     }
     

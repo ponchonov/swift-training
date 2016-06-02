@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		972B92931CFF7E6600729E8B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972B92921CFF7E6600729E8B /* SecondViewController.swift */; };
+		972B92931CFF7E6600729E8B /* AddBandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 972B92921CFF7E6600729E8B /* AddBandViewController.swift */; };
 		97A697EF1CFF7D3B006238B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A697EE1CFF7D3B006238B1 /* AppDelegate.swift */; };
 		97A697F11CFF7D3B006238B1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97A697F01CFF7D3B006238B1 /* ViewController.swift */; };
 		97A697F61CFF7D3B006238B1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 97A697F51CFF7D3B006238B1 /* Assets.xcassets */; };
@@ -34,7 +34,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		972B92921CFF7E6600729E8B /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		972B92921CFF7E6600729E8B /* AddBandViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBandViewController.swift; sourceTree = "<group>"; };
 		97A697EB1CFF7D3B006238B1 /* excersice2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = excersice2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		97A697EE1CFF7D3B006238B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		97A697F01CFF7D3B006238B1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 			children = (
 				97A697EE1CFF7D3B006238B1 /* AppDelegate.swift */,
 				97A697F01CFF7D3B006238B1 /* ViewController.swift */,
-				972B92921CFF7E6600729E8B /* SecondViewController.swift */,
+				972B92921CFF7E6600729E8B /* AddBandViewController.swift */,
 				97A697F51CFF7D3B006238B1 /* Assets.xcassets */,
 				97A697F71CFF7D3B006238B1 /* LaunchScreen.storyboard */,
 				97A697FA1CFF7D3B006238B1 /* Info.plist */,
@@ -255,7 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				972B92931CFF7E6600729E8B /* SecondViewController.swift in Sources */,
+				972B92931CFF7E6600729E8B /* AddBandViewController.swift in Sources */,
 				97A697F11CFF7D3B006238B1 /* ViewController.swift in Sources */,
 				97A697EF1CFF7D3B006238B1 /* AppDelegate.swift in Sources */,
 			);
